@@ -1,0 +1,4 @@
+{
+    "vue.features.codeActions.enable": false,
+    "compile-hero.disable-compile-files-on-did-save-code": true
+}
