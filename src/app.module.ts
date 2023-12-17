@@ -16,6 +16,7 @@ import { ColumnsModule } from './columns/columns.module';
 import { ConfigModule } from './config.module';	 // 1. 引入 ConfigModule  module  模块
 import { Logger } from './middleware/index';
 import { AvatarModule } from './avatar/avatar.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -43,7 +44,7 @@ import { AvatarModule } from './avatar/avatar.module';
     ColumnsModule, //ConfigModule， PModule,   // 2. 注册 ConfigModule
     ConfigModule.forRoot({
       path: '/YuaDing', //动态模块传递参数
-    }), AvatarModule,
+    }), AvatarModule, PostsModule,
     //   AuthModule,     // 2. 注册 ConfigModule   .forRoot({ // 3. 调用 ConfigModule.forRoot() 方法
   ],
   controllers: [AppController],

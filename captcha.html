@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>图片验证码</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href=""> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="./axios.js"></script> -->
+    <script>   // 刷新方法
+        function refresh() {  // 发送请求     //  this.axios.get("/captcha").then((res) => {
+            this.axios.get("http:127.0.0.1:3002/captcha").then((res) => {
+                res.header('Access-Control-Allow-Origin', '*');
+                res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                res.header('Access-Control-Allow-Headers', 'Content-Type');
+                console.log(res)
+                let svg = res.data.img
+                let str = res.data.str
+                svg = `<div>${svg}</div>`
+                aaa.innerHTML = svg
+                str.innerHTML = str
+
+            })
+        }
+        refresh()
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="refresh()" id="aaa"> 验证码占位区 </button>
+        <p id="str"></p>
+    </div>
+    <div>点击刷新</div>
+    <!-- 引入axiosjs文件,用来发起请求,    	 我这里是直接引入的在线的axios文件,  当然大家可以去网上下载axios文件,直接放到public文件夹里面再引入
+     -->
+ </body>
+</html>
